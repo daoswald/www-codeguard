@@ -5,7 +5,11 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME             => 'WWW::Codeguard',
-    AUTHOR           => q{Rishwanth Yeddula <ryeddula@cpan.org>},
+    AUTHOR           => [
+        'Rishwanth Yeddula <ryeddula@cpan.org>',
+        'David Oswald <davido@cpan.org>',
+        'James Jacobson <shames@cpan.org>'
+    ],
     VERSION_FROM     => 'lib/WWW/Codeguard.pm',
     ABSTRACT_FROM    => 'lib/WWW/Codeguard.pm',
     LICENSE          => 'Artistic_2_0',
@@ -31,8 +35,8 @@ WriteMakefile(
         resources => {
             repository => {
                 type => 'git',
-                url  => 'https://github.com/ryeddula/www-codeguard.git',
-                web  => 'https://github.com/ryeddula/www-codeguard',
+                url  => 'https://github.com/daoswald/www-codeguard.git',
+                web  => 'https://github.com/daoswald/www-codeguard',
             },
         },
     },

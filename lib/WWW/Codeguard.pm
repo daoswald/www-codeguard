@@ -265,6 +265,14 @@ sub _error {
 
 Rishwanth Yeddula, C<< <ryeddula at cpan.org> >>
 
+=head2 COMAINTAINERS
+
+=over4
+
+=item David Oswald, C<< <davido@cpan.org> >>
+
+=item James Jacobson, C<< <shames@cpan.org> >>
+
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-www-codeguard at rt.cpan.org>, or through
