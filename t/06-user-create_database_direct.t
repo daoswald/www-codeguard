@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 9;
+use Test::More;
 use FindBin;
 use lib "$FindBin::Bin/lib";
 use CommonSubs;
@@ -270,3 +270,5 @@ subtest 'Delete created database resource' => sub {
 	}
 	ok ( $resp->{message} eq '200', 'delete_website call was successful' );
 };
+
+done_testing();
