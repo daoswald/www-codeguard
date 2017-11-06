@@ -40,7 +40,7 @@
             "LWP::UserAgent" : "0",
             "Net::OAuth" : "0",
             "parent" : "0",
-            "perl" : "5.006"
+            "perl" : "5.008009"
          }
       }
    },

@@ -14,7 +14,7 @@ WriteMakefile(
     ABSTRACT_FROM    => 'lib/WWW/Codeguard.pm',
     LICENSE          => 'Artistic_2_0',
     PL_FILES         => {},
-    MIN_PERL_VERSION => 5.006,
+    MIN_PERL_VERSION => 5.008009,
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => 0,
     },
