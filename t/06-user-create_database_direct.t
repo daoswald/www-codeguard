@@ -142,7 +142,7 @@ subtest 'Exercise database backup endpoints' => sub {
         $mock->mock(request =>
             sub {
                 use HTTP::Response;
-                return HTTP::Response->new(200, 'OK', undef, '{ "status": "success" }');
+                return HTTP::Response->new(200, 'OK', undef, '{"message":"200"}');
             }
         );
 
@@ -151,7 +151,7 @@ subtest 'Exercise database backup endpoints' => sub {
             website_id  => $created_database_website_id,
             database_id => $created_database_id,
         });
-        is ( $resp->{'status'}, 'success', 'create_database_backup call is fully functional' );
+        is ( $resp->{'message'}, 200, 'create_database_backup call is fully functional' );
 
         note "restore_database_backup";
         my $fake_commit_id = '2f902b20d0593051d16acd7b29b5fae28c75fa7d';
@@ -160,7 +160,7 @@ subtest 'Exercise database backup endpoints' => sub {
             database_id => $created_database_id,
             commit_id   => $fake_commit_id,
         });
-        is ( $resp->{'status'}, 'success', 'restore_database_backup  call is fully functional' );
+        is ( $resp->{'message'}, 200, 'restore_database_backup  call is fully functional' );
 
         $mock->mock(request =>
             sub {

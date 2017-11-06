@@ -24,6 +24,7 @@
          "requires" : {
             "JSON" : "0",
             "Test::More" : "0",
+            "Test::MockModule": "0",
             "parent" : "0"
          }
       },
@@ -39,7 +40,7 @@
             "LWP::UserAgent" : "0",
             "Net::OAuth" : "0",
             "parent" : "0",
-            "perl" : "5.006"
+            "perl" : "5.008009"
          }
       }
    },
@@ -51,5 +52,5 @@
          "web" : "https://github.com/ryeddula/www-codeguard"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }

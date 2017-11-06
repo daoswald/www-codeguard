@@ -5,6 +5,7 @@ author:
 build_requires:
   JSON: '0'
   Test::More: '0'
+  Test::MockModule: '0',
   parent: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
@@ -25,7 +26,7 @@ requires:
   LWP::UserAgent: '0'
   Net::OAuth: '0'
   parent: '0'
-  perl: '5.006'
+  perl: '5.008009'
 resources:
   repository: https://github.com/ryeddula/www-codeguard.git
-version: '0.03'
+version: '0.04'

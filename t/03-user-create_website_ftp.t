@@ -119,26 +119,26 @@ subtest 'Exercise backup endpoints' => sub {
         $mock->mock(request =>
             sub {
                 use HTTP::Response;
-                return HTTP::Response->new(200, 'OK', undef, '{ "status": "success" }');
+                return HTTP::Response->new(200, 'OK', undef, '{"message":"200"}');
             }
         );
 
         my $resp = $user_api->create_website_backup( { website_id => $created_website_id });
-        is ( $resp->{'status'}, 'success', 'create_website_backup call is fully functional' );
+        is ( $resp->{'message'}, 200, 'create_website_backup call is fully functional' );
 
         my $fake_commit_id = '2f902b20d0593051d16acd7b29b5fae28c75fa7d';
         $resp = $user_api->restore_website_backup({
             website_id => $created_website_id,
             commit_id  => $fake_commit_id,
         });
-        is ( $resp->{'status'}, 'success', 'restore_website_backup  call is fully functional' );
+        is ( $resp->{'message'}, 200, 'restore_website_backup  call is fully functional' );
 
         $resp = $user_api->selective_restore_website_backup({
             website_id => $created_website_id,
             commit_id  => $fake_commit_id,
             paths      => ['foo/bar.html','baz/spam.html'],
         });
-        is ( $resp->{'status'}, 'success', 'selective_restore_website_backup call is fully functional' );
+        is ( $resp->{'message'}, 200, 'selective_restore_website_backup call is fully functional' );
 
         $resp = eval {
             $user_api->archive_website_backup({
@@ -146,14 +146,14 @@ subtest 'Exercise backup endpoints' => sub {
                 commit_id  => $fake_commit_id,
             });
         } || $@;
-        is ( $resp->{'status'}, 'success', 'archive_website_backup call is fully functional' );
+        is ( $resp->{'message'}, 200, 'archive_website_backup call is fully functional' );
 
         $resp = $user_api->archive_website_selective_backup({
             website_id => $created_website_id,
             commit_id  => $fake_commit_id,
             paths      => ['foo/bar.js'],
         });
-        is ( $resp->{'status'}, 'success', 'archive_website_selective_backup call is fully functional' );
+        is ( $resp->{'message'}, 200, 'archive_website_selective_backup call is fully functional' );
 
         $mock->mock(request =>
             sub {
