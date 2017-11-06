@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 12;
+use Test::More;
 use FindBin;
 use lib "$FindBin::Bin/lib";
 use CommonSubs;
@@ -399,3 +399,5 @@ subtest 'Delete created website resource with SSH key via SFTP' => sub {
 	}
 	ok ( $resp->{message} eq '200', 'delete_website call was successful' );
 };
+
+done_testing();
