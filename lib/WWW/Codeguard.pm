@@ -267,11 +267,13 @@ Rishwanth Yeddula, C<< <ryeddula at cpan.org> >>
 
 =head2 COMAINTAINERS
 
-=over4
+=over 4
 
 =item David Oswald, C<< <davido@cpan.org> >>
 
 =item James Jacobson, C<< <shames@cpan.org> >>
+
+=back
 
 =head1 BUGS
 
