@@ -19,9 +19,10 @@ WriteMakefile(
         'ExtUtils::MakeMaker' => 0,
     },
     BUILD_REQUIRES => {
-        'Test::More' => 0,
-        'JSON'       => 0,
-        'parent'     => 0, # this is core as of 5.10.1, so specifing this for 5.8 installs
+        'Test::More'       => 0,
+        'Test::MockModule' => 0
+        'JSON'             => 0,
+        'parent'           => 0, # this is core as of 5.10.1, so specifing this for 5.8 installs
     },
     PREREQ_PM => {
         'LWP::UserAgent' => 0,
