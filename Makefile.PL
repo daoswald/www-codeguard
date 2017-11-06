@@ -20,7 +20,7 @@ WriteMakefile(
     },
     BUILD_REQUIRES => {
         'Test::More'       => 0,
-        'Test::MockModule' => 0
+        'Test::MockModule' => 0,
         'JSON'             => 0,
         'parent'           => 0, # this is core as of 5.10.1, so specifing this for 5.8 installs
     },
