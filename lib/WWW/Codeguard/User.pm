@@ -726,7 +726,7 @@ sub _create_request {
         'create_website_backup'             => 'POST',
         'restore_website_backup'            => 'POST',
         'selective_restore_website_backup'  => 'POST',
-        'download_website_backup'           => 'POST',
+        'download_website_backup'           => 'GET',
         'download_selective_website_backup' => 'POST',
         'list_website_backups'              => 'GET',
         'browse_website_backup'             => 'GET',
@@ -746,9 +746,9 @@ sub _set_uri {
 	my ($self, $action, $request, $params) = @_;
 	my $base_url = $self->get_api_url();
 
-    my $website_id  = $params->{website_id}  || '';
-    my $database_id = $params->{database_id} || '';
-    my $commit_id   = $params->{commit_id}   || '';
+    my $website_id  = delete $params->{website_id}  || '';
+    my $database_id = delete $params->{database_id} || '';
+    my $commit_id   = delete $params->{commit_id}   || '';
 
 	my $uri_map  = {
         'create_website'                    => '/websites',
@@ -774,7 +774,10 @@ sub _set_uri {
         'list_database_backups'             => "/websites/$website_id/database_backups/$database_id/commits",
 	};
 
-	my $oauth_req = Net::OAuth->request('protected resource')->new(
+    my $method = ($request) ? $request->method : 'GET';
+    my $oauth_params = {
+        # Include our parameters in the query if our method is GET
+        ($method eq 'GET' ? (extra_params => $params) : ()),
 		'consumer_key'     => $self->{api_key},
 		'consumer_secret'  => $self->{api_secret},
 		'token'            => $self->{access_token},
@@ -782,9 +785,11 @@ sub _set_uri {
 		'signature_method' => 'HMAC-SHA1',
 		'timestamp'        => time(),
 		'nonce'            => _oauth_nonce(),
-		'request_method'   => ($request) ? $request->method() : 'GET',
+		'request_method'   => $method,
 		'request_url'      => $base_url.$uri_map->{$action},
-	);
+    };
+
+	my $oauth_req = Net::OAuth->request('protected resource')->new(%$oauth_params);
 	$oauth_req->sign;
 	return ($request) ? $request->uri($oauth_req->to_url) : $oauth_req->to_url;
 }
