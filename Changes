@@ -11,3 +11,5 @@ Revision history for WWW-Codeguard
 0.04    Nov 6, 2017
         Added support for new Codeguard endpoints that allow for interacting with backups.
         Added support for passing parameters through GET requests.
+0.05    Nov 7, 2017
+        Version bump
