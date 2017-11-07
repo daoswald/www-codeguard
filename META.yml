@@ -29,4 +29,4 @@ requires:
   perl: '5.008009'
 resources:
   repository: https://github.com/ryeddula/www-codeguard.git
-version: '0.04'
+version: '0.05'
