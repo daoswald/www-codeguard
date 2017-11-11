@@ -15,7 +15,7 @@ WriteMakefile(
     AUTHOR           => ($eumm_version < 6.5702 ? $authors->[0] : $authors),
     VERSION_FROM     => 'lib/WWW/Codeguard.pm',
     ABSTRACT_FROM    => 'lib/WWW/Codeguard.pm',
-    LICENSE          => 'Artistic_2_0',
+    LICENSE          => 'artistic_2',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.008009,
     CONFIGURE_REQUIRES => {
