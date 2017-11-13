@@ -3,7 +3,7 @@ use strict;
 use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
 
-my $eumm_version = eval "ExtUtils::MakeMaker->VERSION()"; # Force versions like 7.12_34 into 7.1234. See perldoc perlmodstyle
+my $eumm_version = eval ExtUtils::MakeMaker->VERSION(); # Force versions like 7.12_34 into 7.1234. See perldoc perlmodstyle
 my $authors = [
     'Rishwanth Yeddula <ryeddula@cpan.org>',
     'David Oswald <davido@cpan.org>',
