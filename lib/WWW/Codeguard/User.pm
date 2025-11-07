@@ -181,6 +181,7 @@ Optional:
 	dir_path
 	hostname
 	disabled
+	provider
 
 =cut
 
